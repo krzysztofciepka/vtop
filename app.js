@@ -91,25 +91,17 @@ const App = (() => {
     if (upgradeNotice) {
       upgradeNotice = `${upgradeNotice}`;
       headerText = ` {bold}vtop{/bold}{white-fg} for ${os.hostname()} Temp: ${
-        charts && charts["temperature"]
-          ? charts["temperature"].plugin.currentValue
-          : ""
+        charts && charts[3] ? charts[3].plugin.currentValue : ""
       } 'C. {red-bg} Press 'u' to upgrade to v${upgradeNotice} {/red-bg}{/white-fg}`;
       headerTextNoTags = ` vtop for ${os.hostname()} Temp: ${
-        charts && charts["temperature"]
-          ? charts["temperature"].plugin.currentValue
-          : ""
+        charts && charts[3] ? charts[3].plugin.currentValue : ""
       } 'C. Press 'u' to upgrade to v${upgradeNotice} `;
     } else {
       headerText = ` {bold}vtop{/bold}{white-fg} for ${os.hostname()} Temp: ${
-        charts && charts["temperature"]
-          ? charts["temperature"].plugin.currentValue
-          : ""
+        charts && charts[3] ? charts[3].plugin.currentValue : ""
       } 'C`;
       headerTextNoTags = ` vtop for ${os.hostname()} Temp: ${
-        charts && charts["temperature"]
-          ? charts["temperature"].plugin.currentValue
-          : ""
+        charts && charts[3] ? charts[3].plugin.currentValue : ""
       } 'C`;
     }
 
