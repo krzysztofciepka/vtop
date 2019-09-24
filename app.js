@@ -121,7 +121,7 @@ const App = (() => {
       align: "center",
       content: "",
       tags: true,
-      left: Math.floor(program.cols / 2 - 38 / 2)
+      left: Math.floor(program.cols / 2 - 36 / 2)
     });
     screen.append(header);
     screen.append(date);
