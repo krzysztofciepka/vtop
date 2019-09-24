@@ -43,7 +43,7 @@ const plugin = {
    * Grab the current value
    */
   poll() {
-    child.exec("vsgencmd measure_temp", (err, stdout, stderr) => {
+    child.exec("vcgencmd measure_temp", (err, stdout, stderr) => {
       plugin.currentValue = parseTempOutput(stdout);
       plugin.initialized = true;
     });
