@@ -16,7 +16,7 @@ function parseTempOutput(temp) {
     return "";
   }
 
-  return parseFloat(matches[0], 10);
+  return matches[0];
 }
 
 const plugin = {
@@ -37,7 +37,7 @@ const plugin = {
 
   initialized: false,
 
-  currentValue: "",
+  currentValue: 0,
 
   /**
    * Grab the current value

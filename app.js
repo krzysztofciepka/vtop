@@ -90,19 +90,11 @@ const App = (() => {
     let headerTextNoTags;
     if (upgradeNotice) {
       upgradeNotice = `${upgradeNotice}`;
-      headerText = ` {bold}vtop{/bold}{white-fg} for ${os.hostname()} Temp: ${
-        charts && charts[3] ? charts[3].plugin.currentValue : ""
-      } 'C. {red-bg} Press 'u' to upgrade to v${upgradeNotice} {/red-bg}{/white-fg}`;
-      headerTextNoTags = ` vtop for ${os.hostname()} Temp: ${
-        charts && charts[3] ? charts[3].plugin.currentValue : ""
-      } 'C. Press 'u' to upgrade to v${upgradeNotice} `;
+      headerText = ` {bold}vtop{/bold}{white-fg} for ${os.hostname()} {red-bg} Press 'u' to upgrade to v${upgradeNotice} {/red-bg}{/white-fg}`;
+      headerTextNoTags = ` vtop for ${os.hostname()} Press 'u' to upgrade to v${upgradeNotice} `;
     } else {
-      headerText = ` {bold}vtop{/bold}{white-fg} for ${os.hostname()} Temp: ${
-        charts && charts[3] ? charts[3].plugin.currentValue : ""
-      } 'C`;
-      headerTextNoTags = ` vtop for ${os.hostname()} Temp: ${
-        charts && charts[3] ? charts[3].plugin.currentValue : ""
-      } 'C`;
+      headerText = ` {bold}vtop{/bold}{white-fg} for ${os.hostname()}`;
+      headerTextNoTags = ` vtop for ${os.hostname()}`;
     }
 
     const header = blessed.text({
@@ -129,7 +121,7 @@ const App = (() => {
       align: "center",
       content: "",
       tags: true,
-      left: Math.floor(program.cols / 2 - 28 / 2)
+      left: Math.floor(program.cols / 2 - 38 / 2)
     });
     screen.append(header);
     screen.append(date);
@@ -152,7 +144,9 @@ const App = (() => {
       loadAverage.setContent(
         `Load Average: ${avg[0].toFixed(2)} ${avg[1].toFixed(
           2
-        )} ${avg[2].toFixed(2)}`
+        )} ${avg[2].toFixed(2)}  Temp: ${
+          charts && charts[3] ? charts[3].plugin.currentValue : ""
+        }'C. `
       );
       screen.render();
     };
